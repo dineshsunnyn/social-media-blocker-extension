@@ -25,22 +25,22 @@ chrome.storage.onChanged.addListener((changes, areaName) => {
       });
       
       cachedBlockedURLS=result.blockedURLS||[];
-      console.log(cachedBlockedURLS.blockedURLS);
+      console.log(cachedBlockedURLS);
     })();
   }
 });
 
-chrome.webRequest.onBeforeRequest.addListener(
-  (details) => {
-    for (let site of cachedBlockedURLS) {
-      if (details.url.includes(site)) {
-        return { redirectUrl: "blocked.html" };
-      }
-    }
-  },
-  { urls: ["<all_urls>"], types: ["main_frame"] },
-  ["blocking"]
-);
+// chrome.webRequest.onBeforeRequest.addListener(
+//   (details) => {
+//     for (let site of cachedBlockedURLS) {
+//       if (details.url.includes(site)) {
+//         return { redirectUrl: "blocked.html" };
+//       }
+//     }
+//   },
+//   { urls: ["<all_urls>"], types: ["main_frame"] },
+//   ["blocking"]
+// );
 
 chrome.runtime.onStartup.addListener(()=>{
     chrome.storage.local.get("blockedURLS",(result)=>{
@@ -50,5 +50,11 @@ chrome.runtime.onStartup.addListener(()=>{
 
 
 chrome.runtime.onInstalled.addListener(()=>{
-    chrome.storage.local.set({blockedURLS:["facebook.com","youtube.com","instagram.com"]})
+    chrome.storage.local.set({
+      blockedURLS: [
+        "facebook.com",
+        "youtube.com",
+        "instagram.com",
+      ],
+    });
 })

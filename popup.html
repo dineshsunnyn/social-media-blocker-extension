@@ -1,20 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Stay Productive</title>
     <style>
         body {
-            width: 300px;
-            height: 400px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
-            font-family: sans-serif;
-            border-color: red;
+            padding: 20px;
+            width: 320px;
+            background: #ffffff;
+            color: #333;
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 16px;
+            font-size: 14px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .remove-btn {
+            background: none;
+            border: none;
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .remove-btn:hover {
+            color: #c0392b;
         }
     </style>
+</head>
+
 <body>
-   <form>
-    <h6>block your</h6>
-    <input type="text">
-    <button>ADD</button>
-   </form>
+    <h2>Stay Productive 🚫</h2>
+
+    <form id="blockForm">
+        <input type="text" id="websiteInput" placeholder="Add website to block..." required />
+        <button type="submit">Block</button>
+    </form>
+
+    <ul id="blockedSitesList">
+        <!-- Blocked websites will be shown here -->
+    </ul>
+
+    <script src="popup.js"></script>
 </body>
 
 </html>

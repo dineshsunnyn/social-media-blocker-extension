@@ -1,6 +1,6 @@
 {
     "manifest_version":3,
-    "permissions":["storage","webRequest","webRequestBlocking","declarativeNetRequest"],
+    "permissions":["storage","declarativeNetRequest","declarativeNetRequestWithHostAccess"],
     "name":"Stay Productive",
     "version":"1.0",
     "description":"Blocks social media which are keeping you away from stay being productive",
@@ -8,10 +8,18 @@
         "service_worker":"background.js"
     },
     "action":{
-        "deafualt_icon":"icons/icon.png",
+        "default_icon":"icons/icon.png",
         "default_popup":"popup.html"
     },
-    "host_permissions":[
+    "declarative_net_request":{
+        "rule_resources":[
+            {
+                "id":"blockRules",
+                "enabled":true,
+                "path":"rules.json"
 
-    ]
+            }
+        ]
+    },
+    "host_permissions":["<all_urls>"]
 }
