@@ -50,8 +50,19 @@ chrome.runtime.onStartup.addListener(()=>{
 
 
 chrome.runtime.onInstalled.addListener(()=>{
+   
     chrome.storage.local.set({
       blockedURLS: [],
     });
-})
+
+    chrome.declarativeNetRequest.getDynamicRules((rules)=>{
+        const ruleIds=rules.map(rule=>rule.id);
+        if(ruleIds.length>0)
+            {
+                chrome.declarativeNetRequest.updateDynamicRules({
+                    removeRuleIds:ruleIds
+                });
+            }
+    });
+});
 

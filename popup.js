@@ -42,16 +42,24 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         condition: {
           urlFilter: website,
-          resourceTypes: ["main_frame"],
+          resourceTypes: ["main_frame","sub_frame"],
         },
       };
 
-      //   new_website.value="";
+    //   new_website.value="";
 
       chrome.declarativeNetRequest.updateDynamicRules({
         addRules: [new_rule],
         removeRuleIds: [],
       });
+
+      // Display the website on the popup UI
+      const li = document.createElement("li");
+      li.textContent = website;
+      blockedWebsitesList.appendChild(li);
+
+      // Clear the input field
+      new_website.value = "";
 
       // Fetch existing blocked URLs from storage
       chrome.storage.local.get("blockedURLS", (result) => {
@@ -63,14 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // Update storage
         chrome.storage.local.set({ blockedURLS: currentList });
       });
-
-      // Display the website on the popup UI
-      const li = document.createElement("li");
-      li.textContent = website;
-      blockedWebsitesList.appendChild(li);
-
-      // Clear the input field
-      new_website.value = "";
     }
   });
 });

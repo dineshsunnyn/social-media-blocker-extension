@@ -13,12 +13,6 @@
     },
     "declarative_net_request":{
         "rule_resources":[
-            {
-                "id":"blockRules",
-                "enabled":true,
-                "path":"rules.json"
-
-            }
         ]
     },
     "host_permissions":["<all_urls>"]
