@@ -56,16 +56,22 @@
         }
 
         li {
-            background-color: #f8f9fa;
-            border: 1px solid #e0e0e0;
-            padding: 10px;
-            border-radius: 6px;
-            margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 14px;
-        }
+    background-color: #d5f5e3;
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Optional: animated fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
 
         .remove-btn {
             background: none;
@@ -89,7 +95,7 @@
         <input type="text" id="websiteInput" value="" placeholder="Add website to block..." required />
         <button type="submit">Block</button>
     </form>
-
+    <label> Blocked Websites</label>
     <ul id="blockedSitesList">
         <!-- Blocked websites will be shown here -->
     </ul>

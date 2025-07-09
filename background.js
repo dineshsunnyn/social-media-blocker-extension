@@ -51,10 +51,7 @@ chrome.runtime.onStartup.addListener(()=>{
 
 chrome.runtime.onInstalled.addListener(()=>{
     chrome.storage.local.set({
-      blockedURLS: [
-        "facebook.com",
-        "youtube.com",
-        "instagram.com",
-      ],
+      blockedURLS: [],
     });
 })
+

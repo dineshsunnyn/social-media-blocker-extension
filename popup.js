@@ -1,3 +1,27 @@
+document.addEventListener("DOMContentLoaded",()=>{
+  const blockedWebsitesList = document.getElementById("blockedSitesList");
+    chrome.storage.local.get("blockedURLS",(result)=>{
+        const currentList = result.blockedURLS||[];
+        if(currentList.length>0)
+            {
+        for(let i=0;i<currentList.length;i++ )
+            {
+                    const li = document.createElement("li");
+                    li.textContent = currentList[i].website;
+                    blockedWebsitesList.appendChild(li);
+
+            }
+        }    
+        else
+        {
+            const li = document.createElement("li");
+            li.textContent = "No Websites blocked yet";
+            blockedWebsitesList.appendChild(li);
+        }    
+    })
+
+})
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("blockForm");
   const blockedWebsitesList = document.getElementById("blockedSitesList");
@@ -22,20 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       };
 
-    //   new_website.value="";
+      //   new_website.value="";
 
       chrome.declarativeNetRequest.updateDynamicRules({
         addRules: [new_rule],
         removeRuleIds: [],
       });
-
-      // Display the website on the popup UI
-      const li = document.createElement("li");
-      li.textContent = website;
-      blockedWebsitesList.appendChild(li);
-
-      // Clear the input field
-      new_website.value = "";
 
       // Fetch existing blocked URLs from storage
       chrome.storage.local.get("blockedURLS", (result) => {
@@ -47,6 +63,14 @@ document.addEventListener("DOMContentLoaded", () => {
         // Update storage
         chrome.storage.local.set({ blockedURLS: currentList });
       });
+
+      // Display the website on the popup UI
+      const li = document.createElement("li");
+      li.textContent = website;
+      blockedWebsitesList.appendChild(li);
+
+      // Clear the input field
+      new_website.value = "";
     }
   });
 });
