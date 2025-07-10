@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         //     li.textContent = "No Websites blocked yet";
         //     blockedWebsitesList.appendChild(li);
             const msg=document.getElementById("message");
-            msg.textContent="No Websited Blocked Yet !!!";
+            msg.textContent="No Website Blocked Yet !!!";
             msg.style.display="block";
             // setTimeout(()=>{
             //     msg.textContent = "";

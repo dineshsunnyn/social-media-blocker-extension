@@ -1,15 +1,24 @@
 {
     "manifest_version":3,
     "permissions":["storage","declarativeNetRequest","declarativeNetRequestWithHostAccess"],
-    "name":"Stay Productive",
+    "name":"Ctrl+Alt+Block",
     "version":"1.0",
     "description":"Blocks social media which are keeping you away from stay being productive",
     "background":{
         "service_worker":"background.js"
     },
     "action":{
-        "default_icon":"icons/icon.png",
+         "default_icon": {
+            "19": "icons/icon-19.png",
+            "38": "icons/icon-38.png"
+        },
         "default_popup":"popup.html"
+    },
+    "icons":{
+        "16": "icons/favicon-16x16.png",
+        "32": "icons/favicon-32x32.png",
+        "48": "icons/favicon-48x48.png",
+        "128": "icons/favicon-128x128.png"
     },
     "declarative_net_request":{
         "rule_resources":[
