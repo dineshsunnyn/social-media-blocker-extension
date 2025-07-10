@@ -67,6 +67,26 @@
     animation: fadeIn 0.5s ease;
 }
 
+#message {
+    /* display: none; Hide by default */
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #c0392b;
+    background-color: #fdecea;
+    border: 1px solid #e0b4b4;
+    animation: fadeInMessage 0.4s ease;
+    text-align: center;
+}
+
+/* Optional fade-in animation */
+@keyframes fadeInMessage {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* Optional: animated fade-in */
 @keyframes fadeIn {
     from { opacity: 0; transform: scale(0.95); }
@@ -95,7 +115,7 @@
         <input type="text" id="websiteInput" value="" placeholder="Add website to block..." required />
         <button type="submit">Block</button>
     </form>
-    <label> Blocked Websites</label>
+    <label id="message" value=""> </label>
     <ul id="blockedSitesList">
         <!-- Blocked websites will be shown here -->
     </ul>
